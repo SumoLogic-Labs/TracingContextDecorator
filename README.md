@@ -1,9 +1,12 @@
 # TracingContextDecorator
 
+TracingContextDecorator is a component that injects opentelemetry tracing context, e.g. traceid, spanid, parentspanid into log messsage.
+
 Steps needed to use TracingContextDecorator
 
 1) Add Sumologic.TracingContextDecorator `dotnet add package Sumologic.TracingContextDecorator`
-2) Update your app.config file with log4net section. Below complete app.config
+2) Update your app.config file with log4net section. Below is a complete example of app.config
+   that defines log entry format and uses ConsoleAppender.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -16,7 +19,7 @@ Steps needed to use TracingContextDecorator
             <layout type="log4net.Layout.PatternLayout">
                 <converter>
                     <name value="trace_id" />
-                    <type value="SumoLogic.LoggingContext.TraceIdPatternConverter, TracingContextDecorator,Version=1.0.0, Culture=neutral, PublicKeyToken=null" />
+                    <type value="SumoLogic.LoggingContext.TraceIdPatternConverter, TracingContextDecorator,Version=0.0.1, Culture=neutral, PublicKeyToken=null" />
                 </converter>
 
                 <converter>
