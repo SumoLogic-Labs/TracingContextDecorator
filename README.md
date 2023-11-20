@@ -2,9 +2,8 @@
 
 Steps needed to use TracingContextDecorator
 
-1) Clone repo `git clone https://github.com/SumoLogic-Labs/TracingContextDecorator.git`
-2) Add reference to your project `dotnet add reference [path to TracingContextRepo]/TracingContextDecorator.csproj`
-3) Update your app.config file with log4net section. Below complete app.config
+1) Add Sumologic.TracingContextDecorator `dotnet add package Sumologic.TracingContextDecorator`
+2) Update your app.config file with log4net section. Below complete app.config
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -39,4 +38,4 @@ Steps needed to use TracingContextDecorator
 </configuration>
 ```
 
-4) Rebuild project
+3) Build Project
