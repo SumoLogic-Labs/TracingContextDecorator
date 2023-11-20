@@ -21,7 +21,6 @@ Steps needed to use TracingContextDecorator
                     <name value="trace_id" />
                     <type value="SumoLogic.LoggingContext.TraceIdPatternConverter, TracingContextDecorator,Version=0.0.1, Culture=neutral, PublicKeyToken=null" />
                 </converter>
-
                 <converter>
                     <name value="span_id" />
                     <type value="SumoLogic.LoggingContext.SpanIdPatternConverter" />
