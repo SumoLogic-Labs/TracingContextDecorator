@@ -8,7 +8,7 @@
     <Company>Sumologic</Company>
     <PackageTags>Logging, Tracing</PackageTags>
     <Description>Library to inject tracing context into log message</Description>
-    <RepositoryUrl>https://github.com/pdelewski/TracingContextDecorator</RepositoryUrl>
+    <RepositoryUrl>https://github.com/SumoLogic-Labs/TracingContextDecorator</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <ImplicitUsings>enable</ImplicitUsings>
