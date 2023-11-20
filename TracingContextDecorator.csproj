@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <PackageId>Sumologic.TracingContextDecorator</PackageId>
+    <Version>0.0.1</Version>
+    <Authors>Sumologic</Authors>
+    <Company>Sumologic</Company>
+    <PackageTags>Logging, Tracing</PackageTags>
+    <Description>Library to inject tracing context into log message</Description>
+    <RepositoryUrl>https://github.com/pdelewski/TracingContextDecorator</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\"/>
+    <PackageReference Include="log4net" Version="2.0.15" />
+    <PackageReference Include="OpenTelemetry" Version="1.7.0-alpha.1" />
+  </ItemGroup>
+
+</Project>
