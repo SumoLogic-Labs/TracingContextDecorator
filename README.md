@@ -8,6 +8,8 @@ Steps needed to use TracingContextDecorator
 2) Update your app.config file with log4net section. Below is a complete example of app.config
    that defines log entry format and uses ConsoleAppender.
 
+   More information about appenders is available at https://logging.apache.org/log4net/release/config-examples.html
+
 ```
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
