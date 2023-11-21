@@ -6,7 +6,7 @@ using OpenTelemetry.Trace;
 
 namespace SumoLogic.LoggingContext;
 
-public sealed class TracingContextFormatter : ConsoleFormatter, IDisposable
+public sealed class TracingContextFormatter : ConsoleFormatter
 {
 
     public TracingContextFormatter()
@@ -38,6 +38,4 @@ public sealed class TracingContextFormatter : ConsoleFormatter, IDisposable
         textWriter.Write($" span_id:{Tracer.CurrentSpan.Context.SpanId}");
         textWriter.Write($" parent_span_id:{Tracer.CurrentSpan.ParentSpanId}");
     }
-
-    public void Dispose() => Dispose();
 }
