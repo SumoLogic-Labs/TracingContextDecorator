@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <PackageId>Sumologic.TracingContextDecorator</PackageId>
-    <Version>0.0.6-alpha</Version>
+    <Version>0.0.7-alpha</Version>
     <Authors>Sumologic</Authors>
     <Company>Sumologic</Company>
     <PackageTags>Logging, Tracing</PackageTags>
