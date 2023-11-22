@@ -6,7 +6,7 @@ TracingContextDecorator is a component that injects opentelemetry tracing contex
 
  - Log4net
 
-### Steps needed to use TracingContextDecorator
+### Steps needed to use TracingContextDecorator in the context of Log4net
 
 1) Add Sumologic.TracingContextDecorator `dotnet add package Sumologic.TracingContextDecorator`
 2) Update your app.config file with log4net section. Below is a complete example of app.config
@@ -44,6 +44,32 @@ TracingContextDecorator is a component that injects opentelemetry tracing contex
         </root>
     </log4net>
 </configuration>
+```
+
+###  Steps needed to use TracingContextDecorator in the context of Microsoft.Extensions.Logging
+
+1) Add Sumologic.TracingContextDecorator `dotnet add package Sumologic.TracingContextDecorator`
+2) Use TracingContextFormatter, below complete example
+
+```
+using Microsoft.Extensions.Logging;
+using System;
+using Microsoft.Extensions.Logging.Console;
+using SumoLogic.LoggingContext;
+
+internal class Program
+{
+    static void Main(string[] args)
+    {
+        using var loggerFactory = LoggerFactory.Create(builder =>
+        {
+            builder.AddConsole(options => options.FormatterName = "SumoLogic.LoggingContext.TracingContextFormatter")
+                   .AddConsoleFormatter<TracingContextFormatter, ConsoleFormatterOptions>();
+        });
+        ILogger<Program> logger = loggerFactory.CreateLogger<Program>();
+        logger.LogInformation("Hello World! Logging is {Description}.", "fun");
+    }
+}
 ```
 
 3) Build Project

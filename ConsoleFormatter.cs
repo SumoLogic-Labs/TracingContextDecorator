@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Logging.Console;
@@ -11,8 +12,9 @@ public sealed class TracingContextFormatter : ConsoleFormatter
 
     public TracingContextFormatter()
         // Case insensitive
-        : base(nameof(TracingContextFormatter)) 
-    {}
+        : base("SumoLogic.LoggingContext." + nameof(TracingContextFormatter))
+    {
+    }
 
     public override void Write<TState>(
         in LogEntry<TState> logEntry,
@@ -27,15 +29,14 @@ public sealed class TracingContextFormatter : ConsoleFormatter
         {
             return;
         }
-
         WritePrefix(textWriter);
-        textWriter.Write(message);
+        textWriter.WriteLine(message);
     }
 
     private void WritePrefix(TextWriter textWriter)
     {
-        textWriter.Write($" trace_id:{Tracer.CurrentSpan.Context.TraceId}");
-        textWriter.Write($" span_id:{Tracer.CurrentSpan.Context.SpanId}");
-        textWriter.Write($" parent_span_id:{Tracer.CurrentSpan.ParentSpanId}");
+        textWriter.Write($"trace_id:{Tracer.CurrentSpan.Context.TraceId} ");
+        textWriter.Write($"span_id:{Tracer.CurrentSpan.Context.SpanId} ");
+        textWriter.Write($"parent_span_id:{Tracer.CurrentSpan.ParentSpanId} ");
     }
 }
