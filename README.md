@@ -5,6 +5,7 @@ TracingContextDecorator is a component that injects opentelemetry tracing contex
 ### Supported log libraries
 
  - Log4net
+ - Microsoft.Extensions.Logging
 
 ### Steps needed to use TracingContextDecorator in the context of Log4net
 
