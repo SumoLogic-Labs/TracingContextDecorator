@@ -7,6 +7,7 @@ TracingContextDecorator is a component that injects opentelemetry tracing contex
  - Log4net
  - Microsoft.Extensions.Logging
  - NLog
+ - Serilog
 
 ### Steps needed to use TracingContextDecorator in the context of Log4net
 
@@ -135,6 +136,39 @@ namespace NLogDriver {
         {
             LogManager.Setup().SetupExtensions(s => s.RegisterLayoutRenderer("nlog-tracing-context",typeof(NLogTracingContextLayoutRenderer)));
             Logger.Info("Application started...");
+        }
+    }
+}
+```
+
+## Steps needed to use Serilog
+1) Add Sumologic.TracingContextDecorator `dotnet add package Sumologic.TracingContextDecorator`
+2) Implement client
+
+```
+using System;
+using Serilog;
+using Serilog.Core;
+using Serilog.Events;
+using Serilog.Sinks.SystemConsole.Themes;
+using OpenTelemetry.Trace;
+using SumoLogic.LoggingContext;
+
+namespace SerilogDriver {
+
+    public static class Program
+    {
+        public static void Main(string[] args)
+        {
+            var loggerConfig = new LoggerConfiguration().MinimumLevel.Debug()
+                .Enrich.FromLogContext()
+                .Enrich.With(new SerilogTracingContextEnricher())
+                .WriteTo.Console(
+                         outputTemplate: "[trace_id: {trace_id} span_id: {span_id} parent_span_id: {parent_span_id} {Level:u3} {Subsystem}] {Message:lj}{NewLine}{Exception}",
+                         restrictedToMinimumLevel: LogEventLevel.Information,
+                         theme: AnsiConsoleTheme.Sixteen);
+            var log  = loggerConfig.CreateLogger();
+            log.Information("Hello, Serilog!");
         }
     }
 }
