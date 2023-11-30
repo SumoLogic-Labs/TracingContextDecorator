@@ -3,6 +3,8 @@ using NLog;
 using NLog.LayoutRenderers;
 using OpenTelemetry.Trace;
 
+namespace SumoLogic.LoggingContext;
+
 [LayoutRenderer("nlog-tracing-context")]
 public class NLogTracingContextLayoutRenderer : LayoutRenderer
 {
