@@ -7,12 +7,12 @@ using OpenTelemetry.Trace;
 
 namespace SumoLogic.LoggingContext;
 
-public sealed class TracingContextFormatter : ConsoleFormatter
+public sealed class MsELTracingContextConsoleFormatter : ConsoleFormatter
 {
 
-    public TracingContextFormatter()
+    public MsELTracingContextConsoleFormatter()
         // Case insensitive
-        : base("SumoLogic.LoggingContext." + nameof(TracingContextFormatter))
+        : base("SumoLogic.LoggingContext." + nameof(MsELTracingContextConsoleFormatter))
     {
     }
 
