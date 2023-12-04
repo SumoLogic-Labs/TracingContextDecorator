@@ -5,16 +5,14 @@ namespace Log4netTracingContext.Pages;
 
 public class IndexModel : PageModel
 {
-    private readonly ILogger<IndexModel> _logger;
-
     private static readonly log4net.ILog log = log4net.LogManager.GetLogger(typeof(IndexModel));
     public IndexModel(ILogger<IndexModel> logger)
     {
-        _logger = logger;
+        log4net.Config.XmlConfigurator.Configure();
     }
 
     public void OnGet()
     {
-	log.Info("OnGet");
+	log.Info("OnGet");
     }
 }
