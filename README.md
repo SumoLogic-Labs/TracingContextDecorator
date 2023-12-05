@@ -1,7 +1,8 @@
 # TracingContextDecorator
 
 TracingContextDecorator is a component that enriches logs with opentelemetry tracing context e.g. traceid, spanid, parentspanid into log messsage.
-Implementation of required abstractions for specific libraries lives inside `src` subdirectory. All examples are inside `examples` subdirectory.
+Implementation of required abstractions for specific libraries lives inside [src](https://github.com/SumoLogic-Labs/TracingContextDecorator/tree/main/src) subdirectory.
+All examples are inside [examples](https://github.com/SumoLogic-Labs/TracingContextDecorator/tree/main/examples) subdirectory.
 
 ### Supported log libraries
 
